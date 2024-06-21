@@ -31,7 +31,10 @@ class SegmentationDataset(Dataset):
         mask_file = self.mask_files[index]
 
         image = np.load(os.path.join(self.images_dir, image_file))
-        mask = np.load(os.path.join(self.masks_dir, mask_file))
+        mask = np.expand_dims(
+            np.load(os.path.join(self.masks_dir, mask_file)),
+            axis=2
+        )
 
         if self.transform:
             image = self.transform(image)
