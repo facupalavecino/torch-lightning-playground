@@ -165,3 +165,4 @@ models/*
 
 .docker/
 checkpoints/
+**/wandb/**
